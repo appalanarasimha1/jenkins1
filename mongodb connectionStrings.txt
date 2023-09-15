@@ -1,0 +1,82 @@
+{
+  "connectionString.standard": "mongodb://my-user:12345678@example-mongodb-0.example-mongodb-svc.mongons.svc.cluster.local:27017,example-mongodb-1.example-mongodb-svc.mongons.svc.cluster.local:27017,example-mongodb-2.example-mongodb-svc.mongons.svc.cluster.local:27017/admin?replicaSet=example-mongodb&ssl=false",
+  "connectionString.standardSrv": "mongodb+srv://my-user:12345678@example-mongodb-svc.mongons.svc.cluster.local/admin?replicaSet=example-mongodb&ssl=false",
+  "password": "12345678",
+  "username": "my-user"
+}
+
+
+
+kubectl exec -it --namespace=mongons example-mongodb-0 -- bash
+
+
+https://github.com/scriptcamp/kubernetes-mongodb
+
+https://www.mongodb.com/docs/kubernetes-operator/stable/tutorial/connect-from-outside-k8s/ 
+
+
+https://stackoverflow.com/questions/51710614/how-can-i-connect-mongodb-which-is-running-on-kubernetes-cluster-through-ui-tool
+
+
+
+https://stackoverflow.com/questions/63515680/cannot-connect-to-mongodb-from-another-pod-in-kubernetes-cluster
+
+===================================================================================================================================
+
+setup mongondb on k8s using kubernetes community operator:
+
+==============================================================
+
+ls
+kubectl get namespaces
+kubectl get crd/mongodbcommunity.mongodbcommunity.mongodb.com
+kubectl apply -f config/crd/bases/mongodbcommunity.mongodb.com_mongodbcommunity.yaml
+kubectl get crd/mongodbcommunity.mongodbcommunity.mongodb.com
+kubectl apply -k config/rbac/ --namespace mongons
+kubectl get role mongodb-kubernetes-operator --namespace mongons
+kubectl get rolebinding mongodb-kubernetes-operator --namespace mongons
+kubectl get serviceaccount mongodb-kubernetes-operator --namespace mongons
+kubectl create -f config/manager/manager.yaml --namespace mongons
+kubectl get pods --namespace mongons
+clear
+ls
+nano config/samples/mongodb.com_v1_mongodbcommunity_cr.yaml
+kubectl apply -f config/samples/mongodb.com_v1_mongodbcommunity_cr.yaml --namespace mongons
+kubectl get pods
+kubectl get pods --namespace mongons
+kubectl edit mongodbcommunity.mongodbcommunity.mongodb.com example-mongodb -n mongons
+kubectl get secret example-mongodb-admin-my-user -n mongons \
+kubectl get secret example-mongodb-admin-my-user -n mongons -o json | jq -r '.data | with_entries(.value |= @base64d)'
+curl -L -o /usr/bin/jq.exe https://github.com/stedolan/jq/releases/latest/download/jq-win64.exe
+jq --version
+kubectl get secret example-mongodb-admin-my-user -n mongons -o json | jq -r '.data | with_entries(.value |= @base64d)'
+kubectl get secret example-mongodb-admin-my-user -n mongons
+clear
+kubectl get secret <connection-string-secret-name> -n <my-namespace> \
+kubectl get secret <connection-string-secret-name> -n mongons \
+kubectl get secret <connection-string-secret-name> -n mongons -o json | jq -r '.data | with_entries(.value |= @base64d)'
+kubectl get secret example-mongodb-admin-my-user -n mongons -o json | jq -r '.data | with_entries(.value |= @base64d)'
+kubectl get secret example-mongodb-admin-my-user -n mongons --template={{.data.bar}} | base64 --decode
+kubectl get secret example-mongodb-admin-my-user -n mongons | sed 's/^.*bar: \(.*\).*$/\1/' | base64 -d
+kubectl get secret example-mongodb-admin-my-user -n mongons | jq -r '.[].Value' < file.json | base64 --decode
+kubectl describe secrets/example-mongodb-admin-my-user
+kubectl describe secrets/my-user-password
+kubectl describe secrets/my-user
+kubectl get secret my-user -o jsonpath='{.data}'
+kubectl get secret my-user -n mongons -o jsonpath='{.data}'
+kubectl get secret my-user-password -n mongons -o jsonpath='{.data}'
+kubectl get secret my-user-password -n mongons -o jsonpath='{.data}' | base64 --decode
+kubectl get secret my-user-password -n mongons -o jsonpath='{.data}' | base64 -d
+kubectl get secret example-mongodb-admin-my-user -n mongons -o json | jq -r '.data | with_entries(.value |= @base64d)'
+kubectl get pods -n mongons
+kubectl -n mongons exec --stdin --tty example-mongodb-0 -- /bin/bash
+kubectl get pods -n mongons
+kubectl describe pod example-mongodb-0 -n mongons
+kubectl get svc -n mongons
+kubectl describe svc -n mongons
+curl  10.12.1.6:27017
+curl 10.12.1.6:27017
+doskey/history
+=====================================
+mongosh "mongodb://my-user:12345678@example-mongodb-0.example-mongodb-svc.mongons.svc.cluster.local:27017,example-mongodb-1.example-mongodb-svc.mongons.svc.cluster.local:27017,example-mongodb-2.example-mongodb-svc.mongons.svc.cluster.local:27017/admin?replicaSet=example-mongodb&ssl=false"
+=====================================

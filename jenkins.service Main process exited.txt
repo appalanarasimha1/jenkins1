@@ -1,0 +1,11 @@
+ jenkins.service: Main process exited, code=exited, status=1/FAILURE
+Aug 30 07:01:56 uat-cluster-1-77968 systemd[1]: jenkins.service: Failed with result 'exit-code'.
+Aug 30 07:01:56 uat-cluster-1-77968 systemd[1]: Failed to start Jenkins Continuous Integration Server.
+Aug 30 07:01:57 uat-cluster-1-77968 systemd[1]: jenkins.service: Service RestartSec=100ms expired, scheduling restart.
+Aug 30 07:01:57 uat-cluster-1-77968 systemd[1]: jenkins.service: Scheduled restart job, restart counter is at 1.
+Aug 30 07:01:57 uat-cluster-1-77968 systemd[1]: Stopped Jenkins Continuous Integration Server.
+Aug 30 07:01:57 uat-cluster-1-77968 systemd[1]: Starting Jenkins Continuous Integration Server...
+Aug 30 07:01:57 uat-cluster-1-77968 jenkins[2999601]: Running from: /usr/share/java/jenkins.war
+
+
+

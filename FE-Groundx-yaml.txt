@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Podmetadata: 
+ name: fedeployementgx  
+ namespace: frontendspec:  
+ containers:    
+ - name: fegx      
+ image: jed.ocir.io/axnfm4jb3i73/groundx_fe_uat:v42      
+ imagePullPolicy: Always      
+ ports:      
+ - name: fegx        
+ containerPort: 8090        
+ protocol: TCP  
+ imagePullSecrets:          
+ - name: ocirsecret
